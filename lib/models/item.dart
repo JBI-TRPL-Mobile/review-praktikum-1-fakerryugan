@@ -1,9 +1,13 @@
 class Item {
   final String nama;
-  // final String keterangan;
+  final String gambar;
+  final String penulis;
+  final String keterangan;
 
   Item({
     required this.nama,
-    // required this.keterangan,
+    required this.gambar,
+    required this.penulis,
+    required this.keterangan,
   });
 }

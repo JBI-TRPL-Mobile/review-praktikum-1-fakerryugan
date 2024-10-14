@@ -4,8 +4,18 @@ import 'package:template_project/models/item.dart';
 class HomePage extends StatelessWidget {
   // Daftar item yang akan ditampilkan
   final List<Item> items = [
-    Item(nama: 'Flutter Basics'),
-    Item(nama: 'Dart Mastery'),
+    Item(
+        nama: 'Flutter Basics',
+        gambar: 'assets/image/flutter.png',
+        penulis: 'dimas januar pratama',
+        keterangan:
+            'buku untuk belajar flutter yang sangat basic bahkan anak kecil bisa coding'),
+    Item(
+        nama: 'Dart Mastery',
+        gambar: 'assets/image/cerita.png',
+        penulis: 'fatkur rohman irham',
+        keterangan:
+            'buku cerita tentang seorang lelaki yang memiliki dara vampir dan sudah hidp 100 tahun donnot fo child'),
   ];
 
   @override
@@ -19,14 +29,31 @@ class HomePage extends StatelessWidget {
         itemCount: items.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            height: 50,
-            color: Color.fromARGB(255, 236, 236, 236),
-            padding: EdgeInsets.all(8),
-            child: Text(
-              items[index].nama,
-              style: TextStyle(fontSize: 16),
-            ),
-          );
+              padding: EdgeInsets.all(16),
+              margin: EdgeInsets.only(bottom: 16),
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 236, 236, 236),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    items[index].nama,
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                        backgroundColor: Color.fromARGB(255, 67, 50, 250)),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/buku', arguments: items);
+                    },
+                    child: Text(
+                      "detail",
+                      style: TextStyle(color: Color.fromARGB(221, 0, 0, 0)),
+                    ),
+                  ),
+                ],
+              ));
         },
       ),
     );
