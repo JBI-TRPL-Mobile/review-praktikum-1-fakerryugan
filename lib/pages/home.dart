@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:template_project/models/item.dart';
 
 class HomePage extends StatelessWidget {
-  // Daftar item yang akan ditampilkan
   final List<Item> items = [
     Item(
         nama: 'Flutter Basics',
@@ -35,9 +34,14 @@ class HomePage extends StatelessWidget {
                 color: Color.fromARGB(255, 236, 236, 236),
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: Image.asset(items.gambar),
-              Column(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Image.asset(
+                    items[index].gambar,
+                    height: 150,
+                    fit: BoxFit.cover,
+                  ),
                   Text(
                     items[index].nama,
                     style: TextStyle(fontSize: 16),
@@ -46,7 +50,8 @@ class HomePage extends StatelessWidget {
                     style: TextButton.styleFrom(
                         backgroundColor: Color.fromARGB(255, 67, 50, 250)),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/buku', arguments: items);
+                      Navigator.pushNamed(context, '/buku',
+                          arguments: items[index]);
                     },
                     child: Text(
                       "detail",
