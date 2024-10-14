@@ -33,6 +33,11 @@ class bukupage extends StatelessWidget {
                 ),
                 SizedBox(height: 8),
                 Text(
+                  'sinopsis ${itembuku.penulis}',
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+                SizedBox(height: 8),
+                Text(
                   'sinopsis ${itembuku.keterangan}',
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),

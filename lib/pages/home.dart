@@ -22,44 +22,61 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('perpustakaan'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.info),
+            onPressed: () {
+              Navigator.pushNamed(context, '/about');
+            },
+          ),
+        ],
       ),
       body: ListView.builder(
         padding: const EdgeInsets.all(8),
         itemCount: items.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-              padding: EdgeInsets.all(16),
-              margin: EdgeInsets.only(bottom: 16),
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 236, 236, 236),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset(
-                    items[index].gambar,
-                    height: 150,
-                    fit: BoxFit.cover,
+            padding: EdgeInsets.all(16),
+            margin: EdgeInsets.only(bottom: 16),
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 236, 236, 236),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              children: [
+                Image.asset(
+                  items[index].gambar,
+                  height: 150,
+                  fit: BoxFit.cover,
+                ),
+                SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        items[index].nama,
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor: Color.fromARGB(255, 67, 50, 250),
+                        ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/buku',
+                              arguments: items[index]);
+                        },
+                        child: Text(
+                          "detail",
+                          style: TextStyle(color: Color.fromARGB(221, 0, 0, 0)),
+                        ),
+                      ),
+                    ],
                   ),
-                  Text(
-                    items[index].nama,
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                        backgroundColor: Color.fromARGB(255, 67, 50, 250)),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/buku',
-                          arguments: items[index]);
-                    },
-                    child: Text(
-                      "detail",
-                      style: TextStyle(color: Color.fromARGB(221, 0, 0, 0)),
-                    ),
-                  ),
-                ],
-              ));
+                ),
+              ],
+            ),
+          );
         },
       ),
     );

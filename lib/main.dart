@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:template_project/pages/about.dart';
 import 'package:template_project/pages/buku.dart';
 import 'package:template_project/pages/home.dart';
 
@@ -17,7 +18,11 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialRoute: '/',
-      routes: {'/': (context) => HomePage(), '/buku': (context) => bukupage()},
+      routes: {
+        '/': (context) => HomePage(),
+        '/buku': (context) => bukupage(),
+        '/about': (context) => About()
+      },
     );
   }
 }
