@@ -8,7 +8,7 @@ class bukupage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('perpustakaan'),
+        title: Text('perpustakaan1'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
