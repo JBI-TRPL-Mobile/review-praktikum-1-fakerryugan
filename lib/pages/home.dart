@@ -6,13 +6,13 @@ class HomePage extends StatelessWidget {
   final List<Item> items = [
     Item(
         nama: 'Flutter Basics',
-        gambar: 'assets/image/flutter.png',
+        gambar: 'assets/img/flutter.jpg',
         penulis: 'dimas januar pratama',
         keterangan:
             'buku untuk belajar flutter yang sangat basic bahkan anak kecil bisa coding'),
     Item(
         nama: 'Dart Mastery',
-        gambar: 'assets/image/cerita.png',
+        gambar: 'assets/img/cerita.png',
         penulis: 'fatkur rohman irham',
         keterangan:
             'buku cerita tentang seorang lelaki yang memiliki dara vampir dan sudah hidp 100 tahun donnot fo child'),
@@ -35,7 +35,8 @@ class HomePage extends StatelessWidget {
                 color: Color.fromARGB(255, 236, 236, 236),
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: Column(
+              child: Image.asset(items.gambar),
+              Column(
                 children: [
                   Text(
                     items[index].nama,
