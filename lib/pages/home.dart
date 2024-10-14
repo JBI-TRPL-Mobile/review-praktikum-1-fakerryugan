@@ -21,13 +21,22 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('perpustakaan'),
+        title: Text('Perpustakaan'),
         actions: [
-          IconButton(
-            icon: Icon(Icons.info),
+          TextButton(
             onPressed: () {
               Navigator.pushNamed(context, '/about');
             },
+            child: Row(
+              children: [
+                Icon(Icons.info, color: const Color.fromARGB(255, 83, 19, 233)),
+                SizedBox(width: 4),
+                Text(
+                  'Tentang Pembuat',
+                  style: TextStyle(color: const Color.fromARGB(255, 1, 0, 0)),
+                ),
+              ],
+            ),
           ),
         ],
       ),
